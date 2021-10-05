@@ -1,0 +1,6 @@
+Activate environment
+Win: adapter_env\Scripts\activate
+Mac: source adapter_env/bin/activate
+
+Run tests
+pytest
