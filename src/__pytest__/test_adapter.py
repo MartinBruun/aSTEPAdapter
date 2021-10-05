@@ -3,16 +3,15 @@ import json
 
 from src.adapter import Adapter
 
-def test_hello():
-    assert 1 == 1
-
-def test_adapter_from_json_deserializes():
-    expected_options_data = {
-        "SomeOption": "This Option",
-    }
-    actual_options_data = json.dumps(expected_options_data)
+@pytest.mark.parametrize("test_dict", [
+    (None),
+    ({}),
+])
+def test_adapter_from_json_deserializes(test_dict):
+    expected_options_dict = test_dict
+    serialized_test_json = json.dumps(expected_options_dict)
     adapter = Adapter()
 
-    deserialized_options = adapter.from_json(actual_options_data)
+    deserialized_options = adapter.from_json(serialized_test_json)
 
-    assert deserialized_options == expected_options_data
+    assert deserialized_options == expected_options_dict
