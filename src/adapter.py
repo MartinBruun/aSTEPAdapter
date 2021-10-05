@@ -1,3 +1,5 @@
+import json
+
 class Adapter:
     """
         The Adapter is responsible for serialization and deserialization of the Transport Network Model (TNM) defined in RFC0020.
@@ -7,16 +9,22 @@ class Adapter:
         All Microservices following TNM must have an Adapter implementing this interface.
     """
 
-    def to_json(**data):
+    def __init__(self):
+        """
+            The Adapter constructor
+        """
+        pass
+
+    def to_json(self, **data):
         """ 
             Converts the internal representation from the service to the TNM.
             In this Creator service, it converts data from the Database to the initial JSON schema following the TNM.
         """
         pass
 
-    def from_json(options):
+    def from_json(self, options):
         """
             Converts the TNM to some internal representation.
             In this Creator service, it converts some options (defined in RFC0020) from JSON to a python dictionary.
         """
-        return options.json()
+        return json.loads(options)
