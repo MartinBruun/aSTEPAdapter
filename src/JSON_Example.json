@@ -5,6 +5,10 @@
       "priority": "None"
   },
   "vehicle":{
+      "id":"string",
+      "data":{
+
+      }
   },
   "nodes": [
       {
