@@ -1,0 +1,82 @@
+ {
+  "error_list": [],
+  "meta_data": {
+      "last_service": "Creator",
+      "priority": "None"
+  },
+  "vehicle":{
+  },
+  "nodes": [
+      {
+          "id": 1,
+          "weight": 1,
+          "data":{
+          
+          },
+          "edges": [
+              {
+                  "to_node_id": 2,
+                  "weight": 1,
+                  "data":{
+
+                  }
+              },
+              {
+                "to_node_id": 3,
+                "weight": 1,
+                "data":{
+
+                }
+            }
+          ]
+      },
+      {
+          "id": 2,
+          "weight": 1,
+          "data":{
+          
+          },
+          "edges": [
+              {
+                  "to_node_id": 3,
+                  "weight": 1,
+                  "data":{
+
+                  }
+              }
+          ]
+      },
+      {
+          "id": 3,
+          "weight": 1,
+          "data":{
+          
+          },
+          "edges": [
+              {
+                  "to_node_id": 4,
+                  "weight": 1,
+                  "data":{
+
+                  }
+              }
+          ]
+      },
+      {
+          "id": 4,
+          "weight": 1,
+          "data":{
+          
+          },
+          "edges": [
+              {
+                  "to_node_id": 1,
+                  "weight": 1,
+                  "data":{
+                      
+                  }
+              }
+          ]
+      }
+  ]
+  }

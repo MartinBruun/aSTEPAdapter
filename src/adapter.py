@@ -29,20 +29,22 @@ class Adapter:
             Converts the internal representation from the service to the TNM.
             In this Creator service, it converts data from the Database to the initial JSON schema following the TNM.
         """
-
+        nodes = table_kwargs["nodes"]
         for row in table_kwargs["nodes"]:
-            print("Node Id: ", row["node_id"])
-            print("Longitude: ", row["lon"])
-            print("Latitude: ", row["lat"])
+            node_id = row["node_id"]
+            longitude = row["lon"]
+            latitude = row["lat"]
+            node_weight = row["node_weight"]
 
-        for row in table_kwargs["edges"]:
-            print("Edge Id: ", row["edge_id"])
-            print("From Node: ", row["edge_basenode"])
-            print("Distance: ", row["distance"])
-            print("Road name: ", row["edge_name"])
-            print("Highway (UNDEFINED NOW!): ", row["highway"])
-            print("Max Speed (UNDEFINED NOW!): ", row["maxspeed"])
-            print("To Node: ", row["edge_adj"])
+            edges=table_kwargs["edges"]
+            for row in table_kwargs["edges"]:
+                to_node_id = row["to_node_id"] #TODO: RFC navneændring
+                from_node=row["edge_basenode"]
+                distance=row["distance"]
+                road_name=row["edge_name"]
+                highway=row["highway"]#UNDEFINED
+                max_speed=row["maxspeed"]#UNDEFINED
+                to_node=row["edge_adj"]
 
         example_model = {
         "error_list": [],
@@ -55,14 +57,14 @@ class Adapter:
         },
         "nodes": [
             {
-                "id": 1,
-                "weight": 1,
+                "id": node_id,
+                "weight": node_weight,
                 "data":{
                 
                 },
                 "edges": [
                     {
-                        "id": 1,
+                        "to_node_id": 1,
                         "weight": 1,
                         "data":{
 
