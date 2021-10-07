@@ -34,21 +34,21 @@ class Adapter:
             In this Creator service, it converts data from the Database to the initial JSON schema following the TNM.
         """
         dataModel = DataModel
-        nodesJSON = table_kwargs["nodes"]
-        dataModel.errorList = table_kwargs["errors"]
-        dataModel.metadata = table_kwargs["metadata"]
-        dataModel.vehicle = table_kwargs["vehicle"]
+        #nodesJSON = table_kwargs["nodes"]
+        # dataModel.errorList = table_kwargs["errors"]
+        # dataModel.metadata = table_kwargs["metadata"]
+        # dataModel.vehicle = table_kwargs["vehicle"]
 
         #Add nodes to dataModel
         for row in table_kwargs["nodes"]:
             node=makeNode(row)
-            dataModel.nodes.insert(node.node_id, node)#add node at its node_id
+            dataModel["nodes"].insert(node["node_id"], node)#add node at its node_id
         
         #Add edges to nodes in dataModel
         for row in table_kwargs["edges"]:
             edge = makeEdge(row)
             from_node_id = row["edge_basenode"]
-            dataModel.nodes[from_node_id].edges.insert(edge.edge_id,edge)#the from_node_id is used to position an edge at its origining node, and the edge, using this alternative can remove edge.from_node_id from makeEdge
+            dataModel["nodes"][from_node_id]["edges"].insert(edge["edge_id"],edge)#the from_node_id is used to position an edge at its origining node, and the edge, using this alternative can remove edge.from_node_id from makeEdge
            
         serialized_data = json.dumps(dataModel)
         return serialized_data
@@ -57,21 +57,22 @@ class Adapter:
 
 def makeNode(row):
     node ={} 
-    node.node_id = row["node_id"]
-    node.node_weight = row["node_weight"]
-    node.edges = [] 
-    node.data = {
+    # node["node_weight"]= row["node_weight"]
+    node["data"]= {
         "longitude" : row["lon"],
         "latitude" : row["lat"]
     }
+    node["edges"]= [] 
+    node["node_id"]= row["node_id"]
+
     return node
 
 def makeEdge(row):
     edge = {}
-    edge.edge_id= row["edge_id"]
-    edge.to_node_id = row["edge_adj"] #TODO: RFC navneændring
-    #edge.from_node_id = row["edge_basenode"]#TODO: RFC navneændring
-    edge.Data={
+    edge["edge_id"]= row["edge_id"]
+    edge["to_node_id"]= row["edge_adj"] #TODO: RFC navneændring
+    #edge[from_node_id ]= row["edge_basenode"]#TODO: RFC navneændring
+    edge["data"]={
         "distance" : row["distance"],
         "road_name" : row["edge_name"],
         "road_type" : row["highway"],#UNDEFINED 
