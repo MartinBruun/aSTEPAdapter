@@ -47,7 +47,8 @@ class Adapter:
         #Add edges to nodes in dataModel
         for row in table_kwargs["edges"]:
             edge = makeEdge(row)
-            dataModel.nodes[edge.from_node_id].edges.insert(edge.edge_id,edge)#use edge.from_node_id to add edge to correct node
+            from_node_id = row["edge_basenode"]
+            dataModel.nodes[from_node_id].edges.insert(edge.edge_id,edge)#the from_node_id is used to position an edge at its origining node, and the edge, using this alternative can remove edge.from_node_id from makeEdge
            
         serialized_data = json.dumps(dataModel)
         return serialized_data
@@ -69,7 +70,7 @@ def makeEdge(row):
     edge = {}
     edge.edge_id= row["edge_id"]
     edge.to_node_id = row["edge_adj"] #TODO: RFC navneændring
-    edge.from_node_id = row["edge_basenode"]#TODO: RFC navneændring
+    #edge.from_node_id = row["edge_basenode"]#TODO: RFC navneændring
     edge.Data={
         "distance" : row["distance"],
         "road_name" : row["edge_name"],
