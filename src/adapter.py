@@ -57,7 +57,7 @@ class Adapter:
 
 def makeNode(row):
     node ={} 
-    # node["node_weight"]= row["node_weight"]
+    node["node_weight"]= 0
     node["data"]= {
         "longitude" : row["lon"],
         "latitude" : row["lat"]
@@ -71,6 +71,8 @@ def makeEdge(row):
     edge = {}
     edge["edge_id"]= row["edge_id"]
     edge["to_node_id"]= row["edge_adj"] #TODO: RFC navneændring
+    edge["edge_weight"]= 0
+
     #edge[from_node_id ]= row["edge_basenode"]#TODO: RFC navneændring
     edge["data"]={
         "distance" : row["distance"],
