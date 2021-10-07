@@ -1,6 +1,17 @@
+Installer Python ved at downloade installer
+
 Activate environment
-Win: adapter_env\Scripts\activate
-Mac: source adapter_env/bin/activate
+Win: 
+adapter_env\Scripts\activate
+python3 -m pip install pytest
+
+Mac: 
+python3 -m pip install --user virtualenv
+python3 -m venv adapter_env
+source adapter_env/bin/activate
+pip install pytest             
+pytest  
+
 
 Run tests
 pytest
