@@ -57,13 +57,13 @@ class Adapter:
 
 def makeNode(row):
     node ={} 
+    node["node_id"]= row["node_id"]
     node["node_weight"]= 0
     node["data"]= {
         "longitude" : row["lon"],
         "latitude" : row["lat"]
     }
     node["edges"]= [] 
-    node["node_id"]= row["node_id"]
 
     return node
 

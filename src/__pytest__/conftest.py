@@ -76,7 +76,7 @@ def fake_mapdata_edge_1():
             "edge_name": "Eksempel Gade",
             "highway": "residential",
             "maxspeed": 80,
-            "edge_adj": 2,
+            "edge_adj": 3,
         },
         {
             "edge_id": 3,
@@ -85,7 +85,7 @@ def fake_mapdata_edge_1():
             "edge_name": "Eksempel Gade",
             "highway": "residential",
             "maxspeed": 80,
-            "edge_adj": 3,
+            "edge_adj": 4,
         },
         {
             "edge_id": 4,
@@ -94,7 +94,7 @@ def fake_mapdata_edge_1():
             "edge_name": "Eksempel Gade",
             "highway": "city",
             "maxspeed": 50,
-            "edge_adj": 4,
+            "edge_adj": 5,
         },
         {
             "edge_id": 5,
@@ -103,7 +103,7 @@ def fake_mapdata_edge_1():
             "edge_name": "Eksempel Gade",
             "highway": "city",
             "maxspeed": 50,
-            "edge_adj": 2,
+            "edge_adj": 6,
         },
         {
             "edge_id": 6,
@@ -112,7 +112,7 @@ def fake_mapdata_edge_1():
             "edge_name": "Eksempel Gade2",
             "highway": "highway",
             "maxspeed": 135,
-            "edge_adj": 3,
+            "edge_adj": 0,
     #edge.from_node_id = row["edge_basenode"]#TODO: RFC navneændring
         }
     ]
@@ -145,7 +145,6 @@ def fake_expected_model_1():
                         "edge_weight": 0,
                         "data":{
                             "road_name": "Eksempel Gade",
-                            "highway": True,
                             "distance": 10,
                             "max_speed": 130,
                             "road_type": "highway"
@@ -167,7 +166,6 @@ def fake_expected_model_1():
                         "edge_weight": 0,
                         "data":{
                             "road_name": "Eksempel Gade",
-                            "highway": "highway",
                             "distance": 100,
                             "max_speed": 130,
                             "road_type": "highway"
@@ -180,10 +178,20 @@ def fake_expected_model_1():
                         "edge_weight": 0,
                         "data":{
                             "road_name": "Eksempel Gade",
-                            "highway": "residential",
                             "distance": 200,
                             "max_speed": 80,
                             "road_type": "residential"
+                        },
+                    },
+                    {
+                        "edge_id": 6,
+                        "to_node_id": 0,
+                        "edge_weight": 0,
+                        "data":{
+                            "road_name": "Eksempel Gade2",
+                            "distance": 600,
+                            "max_speed": 135,
+                            "road_type": "highway"
                         },
                     },
                 ],
@@ -198,11 +206,10 @@ def fake_expected_model_1():
                 "edges": [
                     {
                         "edge_id": 3,
-                        "to_node_id": 3,
+                        "to_node_id": 4,
                         "edge_weight": 0,
                         "data":{
                             "road_name": "Eksempel Gade",
-                            "highway": "residential",
                             "distance": 300,
                             "max_speed": 80,
                             "road_type": "residential"
@@ -210,11 +217,10 @@ def fake_expected_model_1():
                     },
                     {
                         "edge_id": 4,
-                        "to_node_id": 4,
+                        "to_node_id": 5,
                         "edge_weight": 0,
                         "data":{
                             "road_name": "Eksempel Gade",
-                            "highway": "city",
                             "distance": 400,
                             "max_speed": 50,
                             "road_type": "city"
@@ -232,11 +238,10 @@ def fake_expected_model_1():
                 "edges": [
                     {
                         "edge_id": 5,
-                        "to_node_id": 2,
+                        "to_node_id": 6,
                         "edge_weight": 0,
                         "data":{
                             "road_name": "Eksempel Gade",
-                            "highway": "city",
                             "distance": 500,
                             "max_speed": 50,
                             "road_type": "city"
