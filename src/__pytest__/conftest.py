@@ -24,22 +24,22 @@ def fake_mapdata_node_1():
     """
     return [
         {
-            "node_id": 1,
+            "node_id": 0,
             "lon": 41,
             "lat": 51
         },
         {
-            "node_id": 2,
+            "node_id": 1,
             "lon": 42,
             "lat": 52
         },
         {
-            "node_id": 3,
+            "node_id": 2,
             "lon": 43,
             "lat": 53
         },
         {
-            "node_id": 4,
+            "node_id": 3,
             "lon": 44,
             "lat": 54
         },
@@ -52,34 +52,62 @@ def fake_mapdata_edge_1():
     """
     return [
         {
+            "edge_id": 0,
+            "edge_basenode": 0,
+            "distance": 100,
+            "edge_name": "Eksempel Gade",
+            "highway": True,
+            "maxspeed": 130,
+            "edge_adj": 1,
+        },
+        {
             "edge_id": 1,
             "edge_basenode": 1,
             "distance": 100,
             "edge_name": "Eksempel Gade",
             "highway": True,
             "maxspeed": 130,
-            "edge_adj": 2,
+            "edge_adj": 0,
         },
         {
             "edge_id": 2,
+            "edge_basenode": 1,
+            "distance": 200,
+            "edge_name": "Eksempel Gade",
+            "highway": False,
+            "maxspeed": 80,
+            "edge_adj": 2,
+        },
+        {
+            "edge_id": 3,
             "edge_basenode": 2,
             "distance": 200,
             "edge_name": "Eksempel Gade",
             "highway": False,
             "maxspeed": 80,
+            "edge_adj": 1,
+        },
+        {
+            "edge_id": 4,
+            "edge_basenode": 2,
+            "distance": 300,
+            "edge_name": "Eksempel Gade",
+            "highway": False,
+            "maxspeed": 50,
             "edge_adj": 3,
         },
         {
-            "edge_id": 3,
+            "edge_id": 5,
             "edge_basenode": 3,
             "distance": 300,
             "edge_name": "Eksempel Gade",
             "highway": False,
             "maxspeed": 50,
-            "edge_adj": 4,
+            "edge_adj": 2,
         },
     ]
 
+@pytest.fixture
 def fake_expected_model_1():
     return {
         "error_list": [],
@@ -92,14 +120,15 @@ def fake_expected_model_1():
         },
         "nodes": [
             {
-                "id": 1,
-                "weight": 1,
+                "node_id": 0,
+                "node_weight": 1,
                 "data":{
-                
+                    "longitude": 41,
+                    "latitude": 51,
                 },
                 "edges": [
                     {
-                        "id": 2,
+                        "to_node_id": 0,
                         "weight": 1,
                         "data":{
                             "name": "Eksempel Gade",
@@ -111,14 +140,15 @@ def fake_expected_model_1():
                 ],
             },
             {
-                "id": 2,
-                "weight": 1,
+                "node_id": 1,
+                "node_weight": 1,
                 "data":{
-                
+                    "longitude": 42,
+                    "latitude": 52,
                 },
                 "edges": [
                     {
-                        "id": 1,
+                        "to_node_id": 0,
                         "weight": 1,
                         "data":{
                             "name": "Eksempel Gade",
@@ -128,7 +158,7 @@ def fake_expected_model_1():
                         },
                     },
                     {
-                        "id": 3,
+                        "to_node_id": 2,
                         "weight": 1,
                         "data":{
                             "name": "Eksempel Gade",
@@ -140,14 +170,15 @@ def fake_expected_model_1():
                 ],
             },
             {
-                "id": 3,
-                "weight": 1,
+                "node_id": 2,
+                "node_weight": 1,
                 "data":{
-                
+                    "longitude": 43,
+                    "latitude": 53,
                 },
                 "edges": [
                     {
-                        "id": 2,
+                        "to_node_id": 1,
                         "weight": 1,
                         "data":{
                             "name": "Eksempel Gade",
@@ -157,7 +188,7 @@ def fake_expected_model_1():
                         },
                     },
                     {
-                        "id": 4,
+                        "to_node_id": 3,
                         "weight": 1,
                         "data":{
                             "name": "Eksempel Gade",
@@ -169,14 +200,15 @@ def fake_expected_model_1():
                 ],
             },
             {
-                "id": 4,
-                "weight": 1,
+                "node_id": 3,
+                "node_weight": 1,
                 "data":{
-                
+                    "longitude": 44,
+                    "latitude": 54,
                 },
                 "edges": [
                     {
-                        "id": 3,
+                        "to_node_id": 2,
                         "weight": 1,
                         "data":{
                             "name": "Eksempel Gade",
