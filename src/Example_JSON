@@ -1,0 +1,95 @@
+{
+    "error_list": [],
+    "meta_data": {
+        "last_service": "Creator",
+        "priority": 0 
+    },
+    "vehicle":{
+        "id":0,
+        "data":{
+
+        }
+    },
+    "nodes": [
+        {
+            "node_id": 1,
+            "weight": 1,
+            "data":{
+                "longitude" : 12.6236419221083,
+                "latitude" : 12.6236419221083
+            },
+            "edges": [
+                {
+                    "edge_id":9,  
+                    "to_node_id": 2,
+                    "weight": 1,
+                    "data":{
+                        "distance": 45.83,
+                        "road_name": "Åstvej",                        
+                        "road_type": "residential",
+                        "maxs_peed": 60
+                    }
+                },
+                {
+                    "edge_id":8,  
+                    "to_node_id": 3,
+                    "weight": 1,
+                    "data":{
+
+                    }
+                }
+            ]
+        },
+        {
+            "node_id": 2,
+            "weight": 1,
+            "data":{
+            
+            },
+            "edges": [
+                {   
+                    "edge_id":5,  
+                    "to_node_id": 3,
+                    "weight": 1,
+                    "data":{
+
+                    }
+                }
+            ]
+        },
+        {
+            "node_id": 3,
+            "weight": 1,
+            "data":{
+            
+            },
+            "edges": [
+                {   
+                    "edge_id":7,
+                    "to_node_id": 4,
+                    "weight": 1,
+                    "data":{
+
+                    }
+                }
+            ]
+        },
+        {
+            "node_id": 4,
+            "weight": 1,
+            "data":{
+            
+            },
+            "edges": [
+                {
+                    "edge_id":6,
+                    "to_node_id": 1,
+                    "weight": 1,
+                    "data":{
+                        
+                    }
+                }
+            ]
+        }
+  ]
+  }
