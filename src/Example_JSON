@@ -1,86 +1,94 @@
 {
-  "error_list": [],
-  "meta_data": {
-      "last_service": "Creator",
-      "priority": 0 #TODO: RFC update to number
-  },
-  "vehicle":{
-      "id":"string",
-      "data":{
+    "error_list": [],
+    "meta_data": {
+        "last_service": "Creator",
+        "priority": 0 
+    },
+    "vehicle":{
+        "id":0,
+        "data":{
 
-      }
-  },
-  "nodes": [
-      {
-          "id": 1,
-          "weight": 1,
-          "data":{
-          
-          },
-          "edges": [
-              {
-                  "to_node_id": 2,
-                  "weight": 1,
-                  "data":{
+        }
+    },
+    "nodes": [
+        {
+            "node_id": 1,
+            "weight": 1,
+            "data":{
+                "longitude" : 12.6236419221083,
+                "latitude" : 12.6236419221083
+            },
+            "edges": [
+                {
+                    "edge_id":9,  
+                    "to_node_id": 2,
+                    "weight": 1,
+                    "data":{
+                        "distance": 45.83,
+                        "road_name": "Åstvej",                        
+                        "road_type": "residential",
+                        "maxs_peed": 60
+                    }
+                },
+                {
+                    "edge_id":8,  
+                    "to_node_id": 3,
+                    "weight": 1,
+                    "data":{
 
-                  }
-              },
-              {
-                "to_node_id": 3,
-                "weight": 1,
-                "data":{
-
+                    }
                 }
-            }
-          ]
-      },
-      {
-          "id": 2,
-          "weight": 1,
-          "data":{
-          
-          },
-          "edges": [
-              {
-                  "to_node_id": 3,
-                  "weight": 1,
-                  "data":{
+            ]
+        },
+        {
+            "id": 2,
+            "weight": 1,
+            "data":{
+            
+            },
+            "edges": [
+                {   
+                    "to_node_id": 3,
+                    "weight": 1,
+                    "data":{
 
-                  }
-              }
-          ]
-      },
-      {
-          "id": 3,
-          "weight": 1,
-          "data":{
-          
-          },
-          "edges": [
-              {
-                  "to_node_id": 4,
-                  "weight": 1,
-                  "data":{
+                    }
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "weight": 1,
+            "data":{
+            
+            },
+            "edges": [
+                {   
+                    "edge_id":7,
+                    "to_node_id": 4,
+                    "weight": 1,
+                    "data":{
 
-                  }
-              }
-          ]
-      },
-      {
-          "id": 4,
-          "weight": 1,
-          "data":{
-          
-          },
-          "edges": [
-              {
-                  "to_node_id": 1,
-                  "weight": 1,
-                  "data":{
-                      
-                  }
-              }
-          ]
-      }
+                    }
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "weight": 1,
+            "data":{
+            
+            },
+            "edges": [
+                {
+                    "edge_id":6,
+                    "to_node_id": 1,
+                    "weight": 1,
+                    "data":{
+                        
+                    }
+                }
+            ]
+        }
   ]
   }
