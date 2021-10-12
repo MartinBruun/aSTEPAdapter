@@ -25,3 +25,13 @@ def test_adapter_to_json_serializes_grouping_1_to_traffic_model_schema(fake_mapd
     )
 
     assert fake_expected_model_1 == json.loads(serialized_model)
+
+def test_adapter_to_json_serializes_grouping_2_to_traffic_model_schema(fake_mapdata_node_2, fake_mapdata_edge_2, fake_expected_model_2):
+    adapter = Adapter()
+
+    serialized_model_2 = adapter.to_json(
+        nodes=fake_mapdata_node_2, 
+        edges=fake_mapdata_edge_2
+    )
+
+    assert fake_expected_model_2 == json.loads(serialized_model_2)
